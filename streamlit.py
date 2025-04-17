@@ -55,19 +55,32 @@ def get_input_data():
 def model_description():
     st.header("Model Description")
     st.markdown("""
-        ## Hotel Booking Status Prediction Model
+        ### Hotel Booking Status Prediction Model
         This model is built using **XGBoost** (Extreme Gradient Boosting) algorithm. 
         It predicts the booking status (whether the booking is confirmed or canceled) based on various input features, 
         such as the number of adults, type of meal plan, room type reserved, and other features related to the booking.
 
-        ### Model Features:
-        - **No. of Adults & Children**: Number of adults and children staying in the hotel.
-        - **Meal Plan**: The type of meal plan selected.
-        - **Car Parking**: Whether the customer requires a car parking space.
-        - **Lead Time**: How many days in advance the booking is made.
-        - **Previous Cancellations**: Number of cancellations from the same guest.
+        #### Model Features:
+        - **Number of Adults**: Number of adults staying in the hotel
+        - **Number of Children**: Number of children staying in the hotel
+        - **Number of Weekend Nights**: Number of weekend nights (Saturday or Sunday) the guest stayed or booked to stay at the hotel
+        - **Number of Week Nights**: Number of week nights (Monday to Friday) the guest stayed or booked to stay at the hotel
+        - **Type of Meal Plan**: Type of meal plan booked by the customer
+        - **Required Car Parking Space**: Whether the customer requires a car parking space (0 - No, 1 - Yes)
+        - **Room Type Reserved**: Type of room reserved by the customer. Values are encrypted by INN Hotels
+        - **Lead Time**: Number of days between the booking date and arrival date
+        - **Arrival Year**: Year of arrival date
+        - **Arrival Month**: Month of arrival date
+        - **Arrival Date**: Day of arrival date
+        - **Market Segment Type**: Market segment designation
+        - **Repeated Guest**: Whether the customer is a repeated guest (0 - No, 1 - Yes)
+        - **Number of Previous Cancellations**: Number of previous bookings canceled by the customer prior to the current booking
+        - **Number of Previous Bookings Not Canceled**: Number of previous bookings not canceled by the customer prior to the current booking
+        - **Average Price Per Room**: Average price per day of the booking; prices of the rooms are dynamic (in euros)
+        - **Number of Special Requests**: Total number of special requests made by the customer (e.g. high floor, view from the room, etc.)
+        - **Booking Status**: Target variable indicating if the booking was canceled or not
 
-        ### Performance:
+        #### Performance:
         - **Accuracy**: 89%
         - **Model Type**: XGBoost Classifier
     """)
